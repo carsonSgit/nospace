@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Landing Page</title>
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
+</head>
+<body>
+    <div class="container">
+        <textarea class="entry-field" placeholder="Enter your text here"></textarea>
+        <textarea class="empty-field" readonly></textarea>
+        <button class="submit-button" onclick="submitButtonClicked()">Submit</button>
+    </div>
+</body>
+<script>
+    function submitButtonClicked() {
+    var entryField = document.querySelector('.entry-field');
+    var emptyField = document.querySelector('.empty-field');
+    
+    var text = entryField.value;
+    var trimmedText = text.replace(/\s/g, '');
+    
+    emptyField.value = trimmedText;
+}
+</script>
+</html>
