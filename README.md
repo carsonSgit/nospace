@@ -1,0 +1,2 @@
+# NoSpace
+ removes all whitespaces
