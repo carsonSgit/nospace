@@ -1,0 +1,12 @@
+# Node modules
+node_modules/
+
+# Log files
+logs/
+*.log
+
+# Other possible directories/files to ignore
+dist/
+build/
+.env
+.DS_Store
