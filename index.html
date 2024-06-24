@@ -13,30 +13,28 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles/index.css">
 </head>
-<body><div class="container">
-    <h1 class="mb-4 text-center">Text Trimmer</h1>
-    <div class="alert alert-info d-flex align-items-center" role="alert" id="info-alert">
-        <i class="fas fa-info-circle icon info-alert-icon"></i>
-        Enter text in the field below and click Submit to trim whitespace.
+<body>
+    <div class="container">
+        <h1 class="mb-4 text-center">Text Trimmer</h1>
+        <div class="alert alert-info d-flex align-items-center mb-3" role="alert" id="info-alert">
+            <i class="fas fa-info-circle icon info-alert-icon me-2"></i>
+            Enter text in the field below and click Submit to trim whitespace.
+        </div>
+        <div class="textInputWrapper mb-3">
+            <input placeholder="Type Here" type="text" class="form-control textInput">
+        </div>
+        <div class="mb-3 position-relative">
+            <textarea class="form-control empty-field textInput" readonly placeholder="Trimmed text will appear here"></textarea>
+        </div>
+        
+        <div class="d-grid mb-3">
+            <button class="btn btn-primary submit-button" onclick="submitButtonClicked()">Trim</button>
+        </div>
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-secondary" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        </div>
     </div>
-    <div class="textInputWrapper">
-        <input placeholder="Type Here" type="text" class="textInput">
-    </div>
-    <div class="mb-3 position-relative">
-        <textarea class="form-control empty-field textInput" readonly placeholder="Trimmed text will appear here"></textarea>
-        <button class="copy-button" onclick="copyToClipboard()" aria-label="Copy to Clipboard">
-            <i class="fas fa-clipboard icon"></i>
-        </button>
-    </div>
-    <div class="d-grid">
-        <button class="btn btn-primary submit-button" onclick="submitButtonClicked()">Trim</button>
-    </div>
-    <div class="d-flex justify-content-end mt-3">
-        <button class="btn btn-secondary" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-    </div>
-</div>
-
-
+    
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -78,23 +76,10 @@
         function toggleDarkMode() {
             var body = document.body;
             body.classList.toggle('dark-mode');
-        }
 
-        function copyToClipboard() {
-            var emptyField = document.querySelector('.empty-field');
-            
-            // Select the text in the empty field
-            emptyField.select();
-            emptyField.setSelectionRange(0, 99999); // For mobile devices
-            
-            // Copy the selected text to the clipboard
-            document.execCommand('copy');
-            
-            // Deselect the text
-            emptyField.setSelectionRange(0, 0);
-            
-            // Notify the user
-            alert('Copied to clipboard: ' + emptyField.value);
+            // Toggle dark mode for specific elements if needed
+            var container = document.querySelector('.container');
+            container.classList.toggle('dark-mode');
         }
     </script>
 </body>
