@@ -232,10 +232,28 @@ body {
     color: #fff;
 }
 
+.dark-mode .entry-field {
+    background-color: #495057;
+    border-color: #495057;
+}
+
 .dark-mode .empty-field {
     background-color: #495057;
-    color: #fff;
     border-color: #495057;
+}
+
+.dark-mode .entry-field:focus,
+.dark-mode .entry-field:active,
+.dark-mode .empty-field:focus,
+.dark-mode .empty-field:active {
+    outline: none;
+}
+
+.entry-field:focus,
+.entry-field:active,
+.empty-field:focus,
+.empty-field:active {
+    outline: none;
 }
 
 .dark-mode .submit-button {

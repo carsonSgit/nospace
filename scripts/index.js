@@ -77,23 +77,31 @@ function getCookie(name) {
 
 document.addEventListener('DOMContentLoaded', function() {
     const darkModeEnabled = getCookie('darkModeEnabled');
+    const toggleDarkModeBtn = document.getElementById('toggleDarkModeBtn');
+
     if (darkModeEnabled === 'true') {
         enableDarkMode();
+        toggleDarkModeBtn.innerText = 'Light Mode';
     }
 });
+
 
 function toggleDarkMode() {
     const body = document.body;
     const darkModeEnabled = getCookie('darkModeEnabled') === 'true';
+    const toggleDarkModeBtn = document.getElementById('toggleDarkModeBtn');
 
     if (darkModeEnabled) {
         body.classList.remove('dark-mode');
+        toggleDarkModeBtn.innerText = 'Dark Mode';
         setCookie('darkModeEnabled', 'false', 30);
     } else {
         enableDarkMode();
+        toggleDarkModeBtn.innerText = 'Light Mode';
         setCookie('darkModeEnabled', 'true', 30);
     }
 }
+
 
 function enableDarkMode() {
     const body = document.body;
@@ -101,7 +109,7 @@ function enableDarkMode() {
 }
 
 
-// Initialize tooltips using Bootstrap's tooltip component
+// Bootstrap tooltips stuff
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl);
