@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    <!-- Bootstrap CSS -->
+    <title>nospace.</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Custom Styles -->
     <link rel="stylesheet" href="styles/index.css">
+    <style>
+        .empty-field {
+            resize: none;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="mb-4 text-center">Text Trimmer</h1>
+        <h1 class="mb-4 text-center">nospace.</h1>
         <div class="alert alert-info d-flex align-items-center mb-3" role="alert" id="info-alert">
             <i class="fas fa-info-circle icon info-alert-icon me-2"></i>
-            Enter text in the field below and click Submit to trim whitespace.
+            Enter text in the field below and click "Trim" to trim whitespace.
         </div>
-        <div class="textInputWrapper mb-3">
-            <input placeholder="Type Here" type="text" class="form-control textInput">
+        <div class="mb-3">
+            <input placeholder="Type Here" type="text" class="form-control entry-field textInput">
         </div>
         <div class="mb-3 position-relative">
             <textarea class="form-control empty-field textInput" readonly placeholder="Trimmed text will appear here"></textarea>
@@ -35,52 +36,11 @@
         </div>
     </div>
     
-    <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.min.js"></script>
 
-    <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-
-    <!-- Custom JavaScript -->
-    <script>
-        function submitButtonClicked() {
-            var entryField = document.querySelector('.textInput');
-            var emptyField = document.querySelector('.empty-field');
-            var infoAlert = document.getElementById('info-alert');
-            
-            var text = entryField.value.trim();
-            
-            if (text === '') {
-                updateAlert('alert-danger', '<i class="fas fa-exclamation-triangle icon error-alert-icon"></i> Please enter some text.');
-                emptyField.value = '';
-                return;
-            }
-            
-            var trimmedText = text.replace(/\s/g, '');
-            
-            emptyField.value = trimmedText;
-            
-            updateAlert('alert-success', '<i class="fas fa-check-circle icon success-alert-icon"></i> Text trimmed successfully!');
-        }
-
-        function updateAlert(alertClass, message) {
-            var infoAlert = document.getElementById('info-alert');
-            
-            infoAlert.classList.remove('alert-info', 'alert-success', 'alert-danger');
-            infoAlert.classList.add(alertClass);
-            infoAlert.innerHTML = message;
-        }
-
-        function toggleDarkMode() {
-            var body = document.body;
-            body.classList.toggle('dark-mode');
-
-            // Toggle dark mode for specific elements if needed
-            var container = document.querySelector('.container');
-            container.classList.toggle('dark-mode');
-        }
-    </script>
+    <script src="scripts/index.js"></script>
 </body>
 </html>
