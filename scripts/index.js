@@ -26,11 +26,6 @@ function updateAlert(alertClass, message) {
     infoAlert.innerHTML = message;
 }
 
-function toggleDarkMode() {
-    var body = document.body;
-    body.classList.toggle('dark-mode');
-}
-
 const emptyField = document.querySelector('.empty-field');
 
 // Event listener to handle clicks on the "empty-field" textarea
@@ -55,3 +50,59 @@ function updateAlert(alertClass, message) {
     
     infoAlert.innerHTML = message;
 }
+
+
+// Dark Mode cookies
+// Function to set a cookie
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+function getCookie(name) {
+    var nameEquals = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEquals) === 0) return c.substring(nameEquals.length, c.length);
+    }
+    return null;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const darkModeEnabled = getCookie('darkModeEnabled');
+    if (darkModeEnabled === 'true') {
+        enableDarkMode();
+    }
+});
+
+function toggleDarkMode() {
+    const body = document.body;
+    const darkModeEnabled = getCookie('darkModeEnabled') === 'true';
+
+    if (darkModeEnabled) {
+        body.classList.remove('dark-mode');
+        setCookie('darkModeEnabled', 'false', 30);
+    } else {
+        enableDarkMode();
+        setCookie('darkModeEnabled', 'true', 30);
+    }
+}
+
+function enableDarkMode() {
+    const body = document.body;
+    body.classList.add('dark-mode');
+}
+
+
+// Initialize tooltips using Bootstrap's tooltip component
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+});
