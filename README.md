@@ -21,3 +21,5 @@ Believe it or not, within the first `2 days` of deployment, **nospace.** has got
 > Bell has used nospace. :)
 
 *Made with Bootstrap* 
+
+![License](https://img.shields.io/github/license/carsonSgit/nospace)
