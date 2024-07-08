@@ -18,8 +18,10 @@ Well, that's why I made **nospace.** 🚀
 Believe it or not, within the first `2 days` of deployment, **nospace.** has gotten `4.5k requests` and `800+ page views`.
 
 >[!NOTE]
-> Bell has used nospace. :)
+> [Bell](https://www.bell.ca/) has used nospace. :) *<sup id="footnote">1)</sup>*
 
 *Made with Bootstrap* 
 
 ![License](https://img.shields.io/github/license/carsonSgit/nospace)
+
+<sup id="footnote">1)</sup> Bell employee(s) have used nospace.
