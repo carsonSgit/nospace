@@ -51,7 +51,6 @@ function updateAlert(alertClass, message) {
     infoAlert.innerHTML = message;
 }
 
-
 // Dark Mode cookies
 // Function to set a cookie
 function setCookie(name, value, days) {
@@ -85,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-
 function toggleDarkMode() {
     const body = document.body;
     const darkModeEnabled = getCookie('darkModeEnabled') === 'true';
@@ -102,12 +100,10 @@ function toggleDarkMode() {
     }
 }
 
-
 function enableDarkMode() {
     const body = document.body;
     body.classList.add('dark-mode');
 }
-
 
 // Bootstrap tooltips stuff
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
